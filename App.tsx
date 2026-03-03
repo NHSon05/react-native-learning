@@ -1,16 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+
+  const [count, setCount] = useState<number>(0)
+
   return (
     <View style={styles.container}>
         <View>
-          son
+          <Text>{count} hello world</Text>
         </View>
-        <Text style={styles.hello1}>Hello world</Text>
-        <Text>Hello world</Text>
-        <Text>Hii</Text>
-        <Text>Hello world</Text>
+        <Button
+          title='Increase'
+          onPress={() => alert("tap me")}
+        />
+        <Button
+          color={"red"}
+          title='Increase'
+          onPress={() => setCount(count + 1)}
+        />
       <StatusBar style="auto" />
     </View>
   );
@@ -22,11 +31,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  hello1: {
-    color: 'red',
-    fontSize: 30,
-    borderColor: 'green',
-    borderWidth: 1
   }
 });
